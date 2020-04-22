@@ -1,7 +1,9 @@
 import React from "react";
 import { SPRITE_SIZE } from "../../config/constants";
+import { connect } from "react-redux";
 
 import "./styles.css";
+import store from "../../config/store";
 
 function getTileSprite(type) {
   switch (type) {
@@ -31,7 +33,6 @@ function MapRow(props) {
 }
 
 function MapTile(props) {
-  console.log(SPRITE_SIZE);
   return (
     <div
       className={`tile ${getTileSprite(props.tile)}`}
@@ -60,4 +61,10 @@ function Map(props) {
   );
 }
 
-export default Map;
+function mapStateToProps(state) {
+  return {
+    tiles: state.map.tiles,
+  };
+}
+
+export default connect(mapStateToProps)(Map);
