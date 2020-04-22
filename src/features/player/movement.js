@@ -3,16 +3,18 @@ import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from "../../config/constants";
 
 export default function handleMovement(player) {
   function handleKeyDown(e) {
-    e.preventDefault();
-
     switch (e.keyCode) {
       case 37:
+        e.preventDefault();
         return attemptMove("LEFT");
       case 38:
+        e.preventDefault();
         return attemptMove("UP");
       case 39:
+        e.preventDefault();
         return attemptMove("RIGHT");
       case 40:
+        e.preventDefault();
         return attemptMove("DOWN");
       default:
         console.log(e.keyCode);
